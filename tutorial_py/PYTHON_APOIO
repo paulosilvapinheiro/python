@@ -1,0 +1,15 @@
+
+PYTHON
+
+DIRETÓRIO PYTHON
+C:\Users\mazza\AppData\Local\Programs\Python\Python311
+
+COMANDO PARA INSTALAÇÃO DE PACOTES
+python -m pip install
+
+PACOTES PARA ENVIRONMENTE NOTEBOOK
+https://code.visualstudio.com/docs/datascience/data-science-tutorial
+ pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow
+ 
+ 
+ 
