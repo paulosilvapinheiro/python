@@ -1,0 +1,6 @@
+#Configure Ambiente
+py -m venv studionsession
+
+
+#Define Politica de Script para CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

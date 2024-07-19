@@ -1,0 +1,6 @@
+
+python
+C:\Users\331675\AppData\Local\Programs\Python\Python311
+
+comando
+python -m auto_py_to_exe

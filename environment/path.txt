@@ -1,0 +1,9 @@
+python
+C:\Users\331675\AppData\Local\Programs\Python\Python311
+
+pip
+C:\Users\331675\AppData\Local\Programs\Python\Python311\Scripts
+
+pandas
+
+pip install pandas
