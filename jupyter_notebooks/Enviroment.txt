@@ -1,0 +1,18 @@
+url: https://code.visualstudio.com/docs/datascience/data-science-tutorial
+
+If you already have the full Anaconda distribution installed, you don't need to install Miniconda. Alternatively, if you'd prefer not to use Anaconda or Miniconda, you can create a Python virtual environment and install the packages needed for the tutorial using pip. If you go this route, you will need to install the following packages: pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow.
+
+Bibliotecas:
+
+Pandas
+Jupyter
+seaborn
+scikit-learn
+keras
+tensorflow
+
+comandos PIP
+
+cd: C:\Users\331675\AppData\Local\Programs\Python\Python311\Scripts
+
+pip install pandas
