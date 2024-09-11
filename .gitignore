@@ -1,0 +1,13 @@
+
+# zip
+*.zip
+
+# VSCODE
+.vscode
+
+#ignore recursos do treinamento
+analise_de_dados/Treinamento_ciencia_dados/FormacaoCD
+
+#tkinter
+tkinter
+
