@@ -1,20 +1,22 @@
 
 vowels = ['a','e','i','o','u']
-word = "Paulo da Silva Pinheiro"
+word = "Paulo da "
 found = []
 
 dicVowels = {}
 
 for letter in word:
     if letter in vowels:
-        if letter in dicVowels:
-            dicVowels[letter] += 1
-        else:
-            dicVowels[letter] = 1
+        # if letter in dicVowels:
+        #     dicVowels[letter] += 1
+        # else:
+        #     dicVowels[letter] = 1
+        # Opção IF ternário
+        # dicVowels[letter] = dicVowels[letter] + 1 if letter in dicVowels else 1
 
-        if letter not in found:
-            found.append(letter)
-            print(letter)
+        # Opção SetDefault
+        dicVowels.setdefault(letter,0)
+        dicVowels[letter] += 1
 
 for vowels in dicVowels:
     print(f"vogal:{vowels} : {dicVowels[vowels]}")
