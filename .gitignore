@@ -13,3 +13,5 @@ analise_de_dados/Treinamento_ciencia_dados/FormacaoCD
 #tkinter
 tkinter
 
+#tirar pasta de cache do python
+__pycache__
