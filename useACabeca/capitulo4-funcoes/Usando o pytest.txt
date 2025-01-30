@@ -5,7 +5,7 @@ Para funcionar depende de como o python esta instalado na máquina.
 
 no meu exemplo funcionou assim
 
-py -3 -m pytest vsearch.py  
+py -3 -m pep8 vsearch.py  cd..
 
 OBSERVAÇÃO
 
