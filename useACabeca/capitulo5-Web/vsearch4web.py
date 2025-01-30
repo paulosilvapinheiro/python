@@ -19,4 +19,8 @@ def entry_page() -> 'html':
     return render_template('entry.html'
                            ,the_title = "Welcome to search4Letters onde web!")
 
+def result_do_search_page(phrase: str, letters: str, result: str) -> 'html':
+    return render_template('results.html'
+                           ,the_title = "Retorno do formulário!")
+
 app.run(debug=True)
