@@ -13,17 +13,13 @@ def hello() -> str:
 def do_search() -> str:
     phrase = request.form['Phrase']
     letters = request.form['Letters']
-    return str(search4Vowels(phrase, letters))
-
-
-@app.route('/entry')
-def entry_page() -> 'html':
-    return render_template('entry.html',
-                           the_title="Welcome to search4Letters onde web!")
-
-
-def result_do_search_page(phrase: str, letters: str, result: str) -> 'html':
-    return render_template('results.html'
-                           ,the_title = "Retorno do formulário!")
+    title = 'Here are your results:'
+    results = str(search4Vowels(phrase, letters))
+    return render_template('results.html',
+                           the_phrase=phrase,
+                           the_letters=letters,
+                           the_title=title,
+                           the_results=results,
+                           )
 
 app.run(debug=True)
