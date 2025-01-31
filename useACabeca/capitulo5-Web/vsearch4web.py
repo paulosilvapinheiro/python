@@ -29,5 +29,5 @@ def entry_page() -> 'html':
     return render_template('entry.html',
                            the_title="Welcome to search4Letters onde web!")
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
