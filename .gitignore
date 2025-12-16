@@ -15,3 +15,6 @@ tkinter
 
 #tirar pasta de cache do python
 __pycache__
+
+#Ignora token dbt
+tokenDataBricks_dbt.txt
