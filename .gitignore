@@ -18,3 +18,5 @@ __pycache__
 
 #Ignora token dbt
 tokenDataBricks_dbt.txt
+
+pydata-book
