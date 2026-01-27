@@ -1,0 +1,25 @@
+** start of main.py **
+
+def number_pattern(n):
+    reuslt = ''
+
+    if not isinstance(n,int):
+        result = 'Argument must be an integer value.'
+
+    elif n < 1:
+        result = 'Argument must be an integer greater than 0.'
+
+    else:
+        nums = []
+        for num in range(n):
+            nums.append(str(num+1))
+
+        result = ' '.join(nums)
+        
+    return result
+
+print(number_pattern(4))
+
+
+** end of main.py **
+
