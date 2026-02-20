@@ -1,0 +1,163 @@
+** start of main.py **
+
+class Category:
+    
+    def __init__(self, name):
+
+        self.name = name
+        self.ledger = []
+
+    def deposit(self, amount, description=''):
+      
+        self.ledger.append({'amount': amount, 'description': description})
+
+    def withdraw(self, amount, description = ''):
+
+        if self.check_funds(amount):
+            self.ledger.append({'amount': -amount,'description': description})
+            return True
+        else:
+            return False
+
+    def get_balance(self):
+        return sum([item['amount'] for item in self.ledger])
+
+    def transfer(self, amount, category):
+
+        if self.check_funds(amount):
+            self.withdraw(amount, f'Transfer to {category.name}')
+
+            category.deposit(amount,f'Transfer from {self.name}')
+            return True
+        else:
+            return False
+
+    def check_funds(self, amount):
+        return self.get_balance()>=amount
+
+    def __str__(self):
+        extract = self.name.center(30,'*')
+
+        for item in self.ledger:
+            description = item['description'][:23]
+            amount = f"{item['amount']:.2f}"
+            
+            extract += f"\n{description.ljust(23)}{amount.rjust(7)}"
+    
+        extract += f"\nTotal: {self.get_balance():.2f}"
+
+        return extract
+
+        
+# [:23].ljust(23)
+# {str(round(item['amount'],2)).rjust(7)}
+
+cat = Category('Food')
+cat.deposit(900,'deposit')
+cat.withdraw(50, 'milk, cereal, eggs, bacon, bread')
+cat.deposit(900,'deposit')
+
+cat_2 = Category('Auto')
+cat_2.deposit(1000,'deposit')
+cat_2.withdraw(100, 'tires')
+
+cat_3 = Category('Roupas')
+cat_3.deposit(5000,'deposit')
+cat_3.withdraw(25, 'camisa')
+cat_3.withdraw(25, 'calça')
+cat_3.withdraw(25, 'sapato')
+
+cat_4 = Category('Bebidas')
+cat_4.deposit(500,'deposit')
+cat_4.withdraw(25, 'suco')
+
+# print(cat)
+
+categories = [cat, cat_2, cat_3, cat_4]
+
+def create_spend_chart(categories):
+
+    gastos = []
+    porcentagens = []
+    total_de_gastos = 0
+    point_bar = "o"
+    linha = ""
+    grafico = ""
+
+    for categoria in categories:
+        gastos.append(abs(sum([withdraw['amount'] for withdraw in categoria.ledger if withdraw['amount'] < 0])))
+        # gastos.update({categoria.name:abs(sum([withdraw['amount'] for withdraw in categoria.ledger if withdraw['amount'] < 0])),
+        # 'percentagem':0
+        # })
+
+    total_de_gastos = sum(gastos)
+    
+    for gasto in gastos:
+        porcentagens.append((gasto/total_de_gastos*100)//10*10)
+
+    # print(porcentagens)
+
+    title = "Percentage spent by category"
+
+    grafico += title
+
+    # print(gastos)
+    # print(total_de_gastos)
+   
+    for i in range(100,-1,-10):
+        axis_y = f"\n{str(i).rjust(3)}| "
+        barra = ""
+        for porcentagem in porcentagens:
+            barra += f"{'o'.ljust(3) if porcentagem >= i else ''.ljust(3)}"
+            
+        linha += f"{axis_y}{barra}"
+        # grafico += linha
+        # linha += f"{axis_y}{linha}{barra}\n"
+            #  barra += barra
+
+    grafico += linha
+
+    divisoria = "\n    -".ljust(len(categories)*3+6,'-')
+
+    grafico += divisoria
+    
+    index_existe = 1
+    indice = 0
+    nome = ''
+    espaco = '     '
+    max_name_categoria = max([len(categoria.name) for categotia in categories ])
+
+    for i in range(max_name_categoria):
+
+        if index_existe == 0:
+            break;
+            
+        nome +=  '\n'+ espaco
+        index_existe = 0
+        for categoria in categories:
+            try:
+                # nome += categoria.name[indice].ljust(3,' ')
+                nome += categoria.name[i].ljust(3,' ')
+                index_existe += 1
+            except IndexError:
+                nome += ''.ljust(3,' ')
+                index_existe += 0
+
+        # indice += 1
+        
+        # print(nome)
+        # nome += '\n'
+        # print(f"{indice}{nome}")
+    
+    grafico += nome
+
+    print(grafico)
+
+    return grafico
+
+
+create_spend_chart(categories)
+# print(create_spend_chart(categories))
+
+** end of main.py **
+
